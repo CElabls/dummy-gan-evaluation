@@ -7,6 +7,8 @@ Look at the `.env.sample` in `server` and `client` directories for all available
 # Server
 
 ```bash
+yarn install
+
 DEV
 
 yarn start:dev
@@ -19,6 +21,8 @@ yarn build
 # Client
 
 ```bash
+yarn install
+
 DEV
 
 yarn dev
