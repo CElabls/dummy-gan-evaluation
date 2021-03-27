@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 export default function Test() {
   const [images, setImages] = useState([])
   const [rightAnswersCount, setRightAnswersCount] = useState(0)
-  const [imagesLeftCount, setImagesLeftCount] = useState(30)
+  const [imagesLeftCount, setImagesLeftCount] = useState(process.env.NEXT_PUBLIC_ATTEMPTS)
 
   const [dontKnow, setDontKnow] = useState(false)
   const [finished, setFinished] = useState(false)
@@ -35,7 +35,7 @@ export default function Test() {
         !dontKnow && setImagesLeftCount(prev => prev - 1)
         if (res.shouldStop) {
           setFinished(true)
-          setImagesLeftCount(30)
+          setImagesLeftCount(process.env.NEXT_PUBLIC_ATTEMPTS)
         }
         else loadNext()
       })
