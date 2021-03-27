@@ -34,7 +34,7 @@ yarn build && yarn start
 
 # Images
 
-All images are placed inside `public` directory. `Real` images are placed inside `real`
+All images are placed inside `public` directory on the server. `Real` images are placed inside `real`
 subdirectory, `fake` inside `fake`.
 
 Example tree (2 classes):
