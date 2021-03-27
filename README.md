@@ -49,8 +49,7 @@ public
 ----------  img1f.png
 ```
 
-Image's names doesn't matter. But class name directories should start from `0`.
-
+Image's names does not matter. But class name directories should start from `0`. There also no need to have exactly the same amount of images per class.
 Remember to create directory `logs` at server top-level.
 
 # License
