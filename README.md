@@ -53,4 +53,4 @@ Image's names doesn't matter. But class name directories should start from `0`.
 
 Remember to create directory `logs` at server top-level.
 
-MIT @ Petro Liashchynskyi
+MIT @liashchynskyi
