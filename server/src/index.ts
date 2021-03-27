@@ -1,12 +1,14 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import auth from 'express-basic-auth';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import session from 'express-session';
 import routes from './routes';
 
 dotenv.config({ path: `${__dirname}/../.env` });
-const { AUTH_USER, AUTH_PASSWORD, AUTH } = process.env;
+const {
+  AUTH_USER, AUTH_PASSWORD, AUTH, PORT,
+} = process.env;
 
 const app = express();
 
@@ -32,4 +34,4 @@ app.use((err: Error) => {
   throw err.message;
 });
 
-app.listen(3000, () => 'Server is running on port 3000');
+app.listen(PORT || 3000, () => 'Server is running on port 3000');
