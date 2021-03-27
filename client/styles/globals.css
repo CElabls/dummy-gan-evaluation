@@ -1,0 +1,26 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: 2px solid blue;
+  background: #a47cef;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+  width: 200px;
+}
+
+* {
+  box-sizing: border-box;
+}

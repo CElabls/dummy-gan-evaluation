@@ -24,7 +24,8 @@ router.post('/', async (req: Request, res: Response) => {
   }
 
   // Save result
-  const result = storage.increment(sessionID, body.answer);
+  const answer = +body.answer === 1 && body.label === 'real' && !body.pass;
+  const result = storage.increment(sessionID, answer, body.pass);
   if (result.shouldStop) {
     storage.reset(sessionID);
   }

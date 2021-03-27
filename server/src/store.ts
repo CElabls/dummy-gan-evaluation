@@ -16,16 +16,16 @@ export class DummyStorage {
       this.put(key, { imagesCounter: 0, result: 0 });
     }
 
-    increment(key: string, answer: number): StorageItem {
+    increment(key: string, answer: boolean, pass: boolean): StorageItem {
       const prev = this.get(key);
       const prevValue = prev?.imagesCounter;
 
-      const newValue = prevValue + 1;
+      const newValue = !pass ? prevValue + 1 : prevValue;
       const shouldStop = newValue >= +process.env.NUM_ATTEMPTS!;
 
       const newItem = {
         ...prev,
-        ...(answer === 1 && { result: prev?.result + 1 }),
+        ...(answer && { result: prev?.result + 1 }),
         shouldStop,
         imagesCounter: newValue,
       };

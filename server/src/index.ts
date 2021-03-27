@@ -1,37 +1,32 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import auth from 'express-basic-auth';
+import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
 import session from 'express-session';
+import bodyParser from 'body-parser';
 import routes from './routes';
 
 dotenv.config({ path: `${__dirname}/../.env` });
-const {
-  AUTH_USER, AUTH_PASSWORD, AUTH, PORT,
-} = process.env;
+const { PORT, ORIGIN } = process.env;
 
 const app = express();
 
 app.use(express.static('public'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use(session({
   secret: 'dummy',
   saveUninitialized: true,
+  cookie: { maxAge: 3600000 }, // 1 hour
   resave: false,
 }));
 
-AUTH === 'yes' && app.use(auth({
-  users: {
-    [String(AUTH_USER)]: String(AUTH_PASSWORD),
-  },
-  challenge: true,
-  realm: 'dummy',
-}));
-
+app.use(cors({ credentials: true, origin: ORIGIN }));
 app.use('/', routes);
 
 app.use((err: Error) => {
   throw err.message;
 });
 
-app.listen(PORT || 3000, () => 'Server is running on port 3000');
+app.listen(PORT || 4000, () => 'Server is running on port 3000');

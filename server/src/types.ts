@@ -5,7 +5,8 @@ export interface ImagePairs {
 
 // 1 - real, 0 - fake
 export interface VoteResult extends ImagePairs {
-    answer: 1 | 0
+    answer: 1 | 0,
+    pass: boolean
 }
 
 export interface StorageItem {
